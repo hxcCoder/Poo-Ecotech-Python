@@ -1,37 +1,33 @@
-# Poo-Ecotech-Python
+## Poo-Ecotech-Python
 
-Sistema de gestión orientado a objetos desarrollado en Python para EcoTech Solutions. Este proyecto implementa la lógica de negocio y la estructura de datos necesaria para administrar empleados, proyectos, departamentos y registros de tiempo.
+Sistema de gestión orientado a objetos desarrollado en Python para EcoTech Solutions. Este proyecto implementa la lógica de negocio, persistencia en base de datos y un menú interactivo para administrar empleados, proyectos, departamentos y registros de tiempo.
 
-## 🚀 Características Principales
+*Nota: Para más información sobre el entorno y parámetros de este desarrollo, puedes consultar el archivo contexto-ia.txt.*
 
-*   **Gestión de Empleados:** Registro de datos personales, salarios y asignación de horas trabajadas.
-*   **Administración de Departamentos y Proyectos:** Agrupación de empleados por departamento y asociación de personal a proyectos específicos.
-*   **Seguridad Autenticada:** Módulo de validación de contraseñas mediante hashing simulado para el acceso de empleados.
-*   **Generación de Reportes:** Servicios para exportar datos de proyectos en formatos PDF y Excel.
-*   **Conexión a Base de Datos:** Integración con base de datos validando la persistencia de los registros.
+## Características Principales
 
-## 🏗️ Arquitectura y Diseño
+*   **Menú Interactivo (CLI):** Interfaz de consola centralizada (`menu.py`) para interactuar fácilmente con los distintos módulos del sistema.
+*   **Gestión de Empleados:** Registro de datos personales, datos de contacto (correo, teléfono) y salarios.
+*   **Administración de Departamentos y Proyectos:** Agrupación de empleados por departamento y asociación de personal a proyectos con operaciones CRUD completas.
+*   **Persistencia de Datos Automática:** Uso del patrón Repositorio (`pymysql`) que crea automáticamente las tablas necesarias (`empleados`, `departamentos`, `proyectos`) si no existen en la base de datos.
+*   **Servicios Adicionales:** Clases dedicadas a la generación de reportes simulados (PDF y Excel) y validación de contraseñas[cite: 1].
+*   **Registro de Tiempos:** Estructura preparada para el registro y vinculación de horas trabajadas[cite: 1].
 
-El proyecto está diseñado siguiendo los principios de la Programación Orientada a Objetos (POO):
-*   **Encapsulamiento:** Atributos protegidos con acceso controlado mediante propiedades (`@property`).
-*   **Modularidad:** Separación clara entre entidades de dominio (`Empleado`, `Proyecto`) y servicios operativos (`GeneradorReportes`, `GestorAutenticacion`).
-*   **Asociaciones:** Implementación de relaciones 1..* (Un departamento tiene muchos empleados, un empleado tiene múltiples registros de tiempo).
+## Arquitectura y Diseño
 
-## 🛠️ Tecnologías Utilizadas
+El proyecto está diseñado siguiendo los principios de la Programación Orientada a Objetos (POO)[cite: 1]:
+*   **Patrón Repositorio:** Separación entre las clases de modelo (`Empleado`, `Departamento`, `Proyecto`) y la lógica de acceso a datos (`EmpleadoRepositorio`, etc.)[cite: 1].
+*   **Modularidad:** Separación clara entre entidades de dominio y servicios operativos (`GeneradorReportes`, `GestorAutenticacion`)[cite: 1].
 
-*   **Lenguaje:** Python 3.x
-*   **Base de Datos:** SQLite3 (Módulo `sqlite3`) / MySQL (Módulo `pymysql` para pruebas externas).
-*   **Librerías Nativas:** `datetime`, `typing`.
+## Tecnologías Utilizadas
 
-## ⚙️ Cómo ejecutar el proyecto
+*   **Lenguaje:** Python 3.x[cite: 1]
+*   **Base de Datos:** MySQL Server[cite: 1]
+*   **Librerías:** `pymysql` (para conexión a base de datos), `datetime`[cite: 1].
 
-1.  Asegúrate de tener Python 3.x instalado en tu sistema.
-2.  Clona este repositorio o descarga los archivos.
-3.  Abre una terminal y navega hasta el directorio `Poo-Ecotech-Python`.
-4.  Ejecuta el archivo principal para ver la prueba de conexión y la instanciación del modelo:
+## Requisitos Previos
 
-    ```bash
-    python UML_Ecotech.py
-    ```
-
-El script de prueba creará objetos de demostración, simulará asociaciones entre ellos y probará el acceso a la base de datos.
+1. Asegúrate de tener instalado Python y el motor de base de datos MySQL.
+2. Instala la dependencia de conexión a MySQL:
+   ```bash
+   pip install pymysql
